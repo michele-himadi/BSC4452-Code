@@ -1,0 +1,7 @@
+#define dataset
+data = open('/blue/bsc4452/michele.himadi/Class_Files/data/CO-OPS__8729108__wl.csv')
+for answers in data:
+    delimiter = ','     #defining the delimiter
+    line = answers.split(delimiter)
+    bothlines = line[0] + '    ' + line[1]     #put both lines together with a space between them
+    print(bothlines)    #this is the answer
