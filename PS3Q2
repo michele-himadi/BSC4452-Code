@@ -1,0 +1,67 @@
+#define dataset
+data = open('/blue/bsc4452/michele.himadi/Class_Files/data/CO-OPS__8729108__wl.csv')
+max_water = 0
+min_water = 100
+    #define min and max; max needs to be low and min needs to be high so the comparison > and < will work
+
+for answers in data:
+    delimiter = ','    #defining the delimiter
+    line = answers.split(delimiter)        #data
+    try:
+        mkfloat = float(line[1])        #want to make the water level time into a float number
+    except:
+        continue
+        #try to turn column 1 into a float, skip a line if issue (e.g. for header and blank data)
+    if mkfloat > max_water:
+        max_water = mkfloat
+        bothlines = line[0] + ' | ' + line[1]
+            #if one water level number is greater than the previous, set that max_water value and mkfloat equal to each other
+            #bothlines stores both columns to print
+    if mkfloat < min_water:
+        min_water = mkfloat
+        minwater = line[0] + ' | ' + line[1]
+            #if one water level number is greater than the previous, set that max_water value and mkfloat equal to each other
+            #minwater stores both columns to print
+print('the max water level and the date is: ' + bothlines)
+print('the min water level and the date is: ' + minwater)
+
+
+#the max should be 6.647 and min should be 1.621
+    
+    
+data = open('/blue/bsc4452/michele.himadi/Class_Files/data/CO-OPS__8729108__wl.csv')
+water_sum = 0
+count = 0
+for answers in data:
+    delimiter = ','     #defining the delimiter
+    line = answers.split(delimiter)      #data
+    try:
+        mkfloat = float(line[1])
+    except:
+        continue
+            #try to turn column 1 into a float, skip a line if issue
+    water_sum = water_sum + mkfloat     #calculate the sum of all values
+    count = count + 1       #increase the count by 1 for every iteration of each line
+avg_water = water_sum/count
+print('the average water level is: ' , avg_water)
+
+
+#the average should be 2.98...
+
+
+#this code is an alternative way to calculate water level average
+data = open('/blue/bsc4452/michele.himadi/Class_Files/data/CO-OPS__8729108__wl.csv')
+wtr_list = []
+count = 0
+for answers in data:
+    delimiter = ','     #defining the delimiter
+    line = answers.split(delimiter)    #data
+    try:
+        mkfloat = float(line[1])
+    except:
+        continue
+              #try to turn column 1 into a float, skip a line if issue
+    wtr_list.append(mkfloat)    #makes a "legal" Python list
+print('the average water level is:')
+sum(wtr_list)/len(wtr_list)
+    #now this function is able to work properly
