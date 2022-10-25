@@ -1,1 +1,1 @@
-# BSC4452-Code
+Thank you for viewing my code! Each question has one file, one is a direct copy of the Jupyter Notebook (the .ipynb files) and the other is a copy of only the code. The Jupyter Notebook links should work better if you're using that to check the code, and it does look a little neater.
