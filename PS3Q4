@@ -1,0 +1,24 @@
+#define dataset
+data = open('/blue/bsc4452/michele.himadi/Class_Files/data/CO-OPS__8729108__wl.csv')
+previous = 2.421
+    #first value
+    
+for answers in data:
+    delimiter = ','
+        #defining the delimiter
+    line = answers.split(delimiter)
+    try:
+         current = float(line[1])
+    except:
+        if line[1] == '':
+            print('no data for' , line[0])
+        continue
+    
+    if current - previous > 0.25:
+        print('WARNING, water level has increased over 0.25 units from the previous date and time on', line[0])
+    if current > 5.0:
+        print('WARNING, water level is over 5.0 on' , line[0])
+    
+    previous = current
+    
+#the answer should have exactly one "no data" line and should spit out the dates and times
